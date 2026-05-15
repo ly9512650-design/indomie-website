@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إندومي | نكهة لا تُقاوم</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+        
+        :root {
+            --primary-red: #e30613;
+            --yellow: #ffcc00;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(227, 6, 19, 0.85), rgba(227, 6, 19, 0.85)), url('https://picsum.photos/id/1060/1920/1080') center/cover no-repeat;
+        }
+        
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(227 6 19 / 0.25);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            right: 0;
+            background-color: #ffcc00;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+            right: auto;
+            left: 0;
+        }
+        
+        .tail-text {
+            background: linear-gradient(90deg, #e30613, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-inner">🍜</div>
+                    <div>
+                        <span class="text-3xl font-bold tracking-tighter text-red-600">إندومي</span>
+                        <p class="text-xs text-gray-500 -mt-1">نكهة لا تُقاوم</p>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center gap-8 text-lg">
+                    <a href="#home" class="nav-link font-medium hover:text-red-600 transition-colors">الرئيسية</a>
+                    <a href="#about" class="nav-link font-medium hover:text-red-600 transition-colors">عن إندومي</a>
+                    <a href="#products" class="nav-link font-medium hover:text-red-600 transition-colors">منتجاتنا</a>
+                    <a href="#recipes" class="nav-link font-medium hover:text-red-600 transition-colors">وصفات</a>
+                    <a href="#contact" class="nav-link font-medium hover:text-red-600 transition-colors">اتصل بنا</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleSearch()" 
+                            class="w-11 h-11 flex items-center justify-center text-2xl hover:bg-gray-100 rounded-2xl transition-colors">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button onclick="window.location.href='#contact'" 
+                            class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-2xl font-semibold transition-all flex items-center gap-2 shadow-lg shadow-red-200">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>تسوق الآن</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 py-24">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-2 rounded-3xl mb-6">
+                    <span class="text-yellow-300 text-sm font-bold tracking-widest">الأفضل عالمياً</span>
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-6">
+                    لحظة سعادة<br>في كل <span class="tail-text">كوب</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl mb-10 text-white/90">
+                    إندومي.. المذاق الأصلي اللي بيجمع العيلة ويخلي كل يوم مغامرة
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })" 
+                            class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold text-xl px-10 py-5 rounded-3xl flex items-center gap-3 transition-all shadow-xl">
+                        <i class="fa-solid fa-utensils"></i>
+                        اكتشف المنتجات
+                    </button>
+                    
+                    <button onclick="document.getElementById('recipes').scrollIntoView({ behavior: 'smooth' })" 
+                            class="border-2 border-white hover:bg-white/10 font-bold text-xl px-10 py-5 rounded-3xl transition-all">
+                        وصفات إبداعية
+                    </button>
+                </div>
+                
+                <div class="mt-16 flex items-center gap-8">
+                    <div class="flex items-center gap-2">
+                        <div class="flex -space-x-4">
+                            <img src="https://picsum.photos/id/64/48/48" class="w-8 h-8 rounded-full border-2 border-white object-cover">
+                            <img src="https://picsum.photos/id/91/48/48" class="w-8 h-8 rounded-full border-2 border-white object-cover">
+                        </div>
+                        <div class="text-sm">
+                            <div class="font-semibold">+٢٥ مليون</div>
+                            <div class="text-white/70 text-xs">مصري يحبونا</div>
+                        </div>
+                    </div>
+                    <div class="h-12 w-px bg-white/30"></div>
+                    <div class="text-amber-300 text-4xl font-bold">٩٩٪</div>
+                    <div class="text-sm leading-tight">
+                        يوصوا<br>بينا لأصحابهم
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating badges -->
+        <div class="absolute bottom-12 right-12 hidden lg:flex flex-col gap-4">
+            <div class="bg-white text-red-600 px-6 py-3 rounded-3xl shadow-2xl flex items-center gap-3">
+                <i class="fa-solid fa-medal text-2xl"></i>
+                <div>
+                    <div class="font-bold text-sm">أفضل نودلز</div>
+                    <div class="text-xs">في العالم ٢٠٢٥</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-4xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-red-600 font-bold text-lg tracking-widest">منذ ١٩٦٨</span>
+                    <h2 class="text-5xl font-bold leading-tight mt-3 mb-8">
+                        قصة نكهة<br>غيّرت العالم
+                    </h2>
+                    <div class="prose text-lg text-gray-600 max-w-lg">
+                        <p>بدأت رحلة إندومي في إندونيسيا ووصلت لقلوب الملايين في مصر والعالم العربي. نستخدم أجود المكونات لنقدم لك تجربة طعام سريعة ولذيذة في كل مرة.</p>
+                    </div>
+                    
+                    <div class="mt-12 grid grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-4xl font-bold text-red-600">١٥٠+</div>
+                            <div class="text-sm text-gray-500 mt-1">دولة حول العالم</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-red-600">٣٥+</div>
+                            <div class="text-sm text-gray-500 mt-1">نكهة مختلفة</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-red-600">٥٥</div>
+                            <div class="text-sm text-gray-500 mt-1">عام خبرة</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://picsum.photos/id/201/800/620" alt="مصنع إندومي" 
+                         class="rounded-3xl shadow-2xl">
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-3xl p-6 shadow-xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center text-4xl">🌍</div>
+                            <div>
+                                <div class="font-bold text-2xl">مصر</div>
+                                <div class="text-green-600">مصنعنا المحلي</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-24 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="bg-red-100 text-red-600 px-5 py-2 rounded-full text-sm font-bold">تشكيلتنا</span>
+                <h2 class="text-5xl font-bold mt-4">منتجات إندومي</h2>
+                <p class="text-gray-600 mt-3 text-xl">اختر نكهتك المفضلة</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="h-64 bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-8xl">🍜</div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs bg-yellow-400 text-black px-3 py-1 rounded-full">الأكثر مبيعاً</span>
+                                <h3 class="font-bold text-2xl mt-3">دجاج مشوي</h3>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-red-600 font-bold">١٥ جنيه</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-500 text-sm mt-4">النكهة الكلاسيكية المحبوبة من الجميع</p>
+                        <button onclick="addToCart(this)" 
+                                class="mt-6 w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-2xl font-semibold">أضف للسلة</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="h-64 bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-8xl">🌶️</div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-2xl mt-3">شطة حارة</h3>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-red-600 font-bold">١٥ جنيه</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-500 text-sm mt-4">لعشاق الطعم الحار القوي</p>
+                        <button onclick="addToCart(this)" 
+                                class="mt-6 w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-2xl font-semibold">أضف للسلة</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="h-64 bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-8xl">🥦</div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-2xl mt-3">خضار طازجة</h3>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-red-600 font-bold">١٦ جنيه</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-500 text-sm mt-4">خيار صحي ولذيذ</p>
+                        <button onclick="addToCart(this)" 
+                                class="mt-6 w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-2xl font-semibold">أضف للسلة</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="h-64 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-8xl">🦐</div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-2xl mt-3">جمبري بحري</h3>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-red-600 font-bold">١٨ جنيه</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-500 text-sm mt-4">فخامة في كل لقمة</p>
+                        <button onclick="addToCart(this)" 
+                                class="mt-6 w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-2xl font-semibold">أضف للسلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipes -->
+    <section id="recipes" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-yellow-500 font-bold">مطبخ إندومي</span>
+                    <h2 class="text-5xl font-bold">وصفات سهلة ولذيذة</h2>
+                </div>
+                <a href="#" class="text-red-600 font-medium flex items-center gap-2 hover:gap-4 transition-all">
+                    المزيد من الوصفات <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-3xl">
+                        <img src="https://picsum.photos/id/431/600/400" alt="وصفة" class="w-full h-80 object-cover transition-transform group-hover:scale-110 duration-700">
+                        <div class="absolute top-4 left-4 bg-white px-4 py-1 rounded-2xl text-sm font-bold">١٥ دقيقة</div>
+                    </div>
+                    <h3 class="mt-5 text-2xl font-semibold">إندومي بالدجاج المقرمش</h3>
+                </div>
+                
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-3xl">
+                        <img src="https://picsum.photos/id/870/600/400" alt="وصفة" class="w-full h-80 object-cover transition-transform group-hover:scale-110 duration-700">
+                        <div class="absolute top-4 left-4 bg-white px-4 py-1 rounded-2xl text-sm font-bold">٢٠ دقيقة</div>
+                    </div>
+                    <h3 class="mt-5 text-2xl font-semibold">سلطة إندومي باردة</h3>
+                </div>
+                
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-3xl">
+                        <img src="https://picsum.photos/id/106/600/400" alt="وصفة" class="w-full h-80 object-cover transition-transform group-hover:scale-110 duration-700">
+                        <div class="absolute top-4 left-4 bg-white px-4 py-1 rounded-2xl text-sm font-bold">١٠ دقائق</div>
+                    </div>
+                    <h3 class="mt-5 text-2xl font-semibold">إندومي بالبيض والخضار</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-red-600 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">ماذا يقولون عنا؟</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl">
+                    <div class="flex gap-1 text-yellow-300 mb-6">
+                        ★★★★☆
+                    </div>
+                    <p class="italic">"أحسن نودلز في مصر بلا منازع. بناتي بيطلبوه كل يوم!"</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gray-300 rounded-2xl"></div>
+                        <div>
+                            <div class="font-semibold">أميرة محمد</div>
+                            <div class="text-sm opacity-75">القاهرة</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl">
+                    <div class="flex gap-1 text-yellow-300 mb-6">
+                        ★★★★★
+                    </div>
+                    <p class="italic">"النكهة ثابتة دايماً. أفضل خيار للغدا السريع."</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gray-300 rounded-2xl"></div>
+                        <div>
+                            <div class="font-semibold">أحمد خالد</div>
+                            <div class="text-sm opacity-75">الإسكندرية</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl">
+                    <div class="flex gap-1 text-yellow-300 mb-6">
+                        ★★★★☆
+                    </div>
+                    <p class="italic">"جودة عالية وسعر مناسب. شكراً إندومي."</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gray-300 rounded-2xl"></div>
+                        <div>
+                            <div class="font-semibold">سارة علي</div>
+                            <div class="text-sm opacity-75">الجيزة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-5xl font-bold mb-8">تواصل معنا</h2>
+                    <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-8">
+                        <div class="grid grid-cols-2 gap-6">
+                            <input type="text" placeholder="الاسم" required
+                                   class="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 focus:outline-none focus:border-yellow-400">
+                            <input type="tel" placeholder="رقم التليفون" required
+                                   class="bg-white/10 border border-white/20 rounded-2xl px-6 py-5 focus:outline-none focus:border-yellow-400">
+                        </div>
+                        <input type="email" placeholder="البريد الإلكتروني" 
+                               class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-5 focus:outline-none focus:border-yellow-400">
+                        <textarea placeholder="رسالتك..." rows="5"
+                                  class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-5 focus:outline-none focus:border-yellow-400"></textarea>
+                        <button type="submit"
+                                class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-6 rounded-3xl text-xl transition-all">
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="space-y-10">
+                    <div>
+                        <div class="text-yellow-400 text-2xl mb-2">📍</div>
+                        <div class="font-semibold text-xl">العنوان</div>
+                        <div class="text-gray-400 mt-1">المنطقة الصناعية - ٦ أكتوبر، مصر</div>
+                    </div>
+                    <div>
+                        <div class="text-yellow-400 text-2xl mb-2">📞</div>
+                        <div class="font-semibold text-xl">١٩٩٩٩</div>
+                        <div class="text-gray-400">خدمة العملاء</div>
+                    </div>
+                    <div>
+                        <div class="text-yellow-400 text-2xl mb-2">⏰</div>
+                        <div class="font-semibold text-xl">٢٤/٧</div>
+                        <div class="text-gray-400">متواجدون دائماً</div>
+                    </div>
+                    
+                    <div class="pt-8 border-t border-white/20">
+                        <div class="flex gap-6 text-3xl">
+                            <i class="fa-brands fa-facebook hover:text-yellow-400 cursor-pointer transition-colors"></i>
+                            <i class="fa-brands fa-instagram hover:text-yellow-400 cursor-pointer transition-colors"></i>
+                            <i class="fa-brands fa-youtube hover:text-yellow-400 cursor-pointer transition-colors"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center text-4xl">🍜</div>
+                        <span class="text-3xl font-bold">إندومي</span>
+                    </div>
+                    <p class="text-gray-400">نكهة الفرحة في كل بيت</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">روابط سريعة</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white">منتجاتنا</a></li>
+                        <li><a href="#" class="hover:text-white">الوصفات</a></li>
+                        <li><a href="#" class="hover:text-white">عن الشركة</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">الدعم</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white">اتصل بنا</a></li>
+                        <li><a href="#" class="hover:text-white">الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="hover:text-white">تتبع الشحنة</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">اشترك في نشرتنا</h4>
+                    <div class="flex">
+                        <input type="email" placeholder="بريدك الإلكتروني" 
+                               class="bg-gray-900 border border-gray-700 rounded-r-2xl px-5 py-4 focus:outline-none w-full">
+                        <button class="bg-red-600 px-8 rounded-l-2xl font-medium">اشترك</button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-4">احصل على وصفات جديدة وعروض خاصة</p>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                © ٢٠٢٦ شركة إندومي مصر. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-green-600 text-white px-8 py-4 rounded-3xl shadow-2xl flex items-center gap-3 z-50">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toast-text" class="font-medium"></span>
+    </div>
+
+    <script>
+        // Tailwind script already included via CDN
+        
+        function addToCart(btn) {
+            btn.innerHTML = `<i class="fa-solid fa-check"></i> تمت الإضافة`;
+            btn.style.backgroundColor = '#10b981';
+            
+            setTimeout(() => {
+                btn.innerHTML = 'أضف للسلة';
+                btn.style.backgroundColor = '';
+            }, 2000);
+            
+            showToast('تم إضافة المنتج إلى السلة بنجاح!');
+        }
+        
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            toastText.textContent = message;
+            toast.classList.remove('hidden');
+            toast.style.transform = 'translate(-50%, 0)';
+            
+            setTimeout(() => {
+                toast.style.transform = 'translate(-50%, 100px)';
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 500);
+            }, 3000);
+        }
+        
+        function handleSubmit(e) {
+            e.preventDefault();
+            showToast('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً');
+            e.target.reset();
+        }
+        
+        function toggleSearch() {
+            showToast('البحث قيد التطوير...');
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Keyboard shortcut
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '/' && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+                e.preventDefault();
+                toggleSearch();
+            }
+        });
+        
+        console.log('%c✅ موقع إندومي تم تحميله بنجاح!', 'color: #e30613; font-size: 16px; font-weight: bold');
+    </script>
+</body>
+  </html>
